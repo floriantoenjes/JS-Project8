@@ -65,3 +65,8 @@ gulp.task("images", function () {
     .pipe(imagemin())
     .pipe(gulp.dest("dist/content"));
 });
+
+
+gulp.task("clean", function () {
+    del("dist");
+});
