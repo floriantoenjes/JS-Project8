@@ -8,7 +8,8 @@ const gulp = require("gulp"),
       sass = require("gulp-sass"),
       uglifycss = require("gulp-uglifycss"),
       imagemin = require('gulp-imagemin'),
-      del = require("del");
+      del = require("del"),
+      runSequence = require("run-sequence");
 
 gulp.task("concatScripts", function () {
     return gulp.src([
@@ -70,4 +71,9 @@ gulp.task("images", function () {
 
 gulp.task("clean", function () {
     del("./dist/*");
+});
+
+
+gulp.task("build", function() {
+    runSequence("clean", ["scripts", "styles", "images"]);
 });
