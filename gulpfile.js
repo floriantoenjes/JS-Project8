@@ -13,6 +13,8 @@ const gulp = require("gulp"),
       webserver = require('gulp-webserver'),
       useref = require("gulp-useref");
 
+
+/* JavaScript */
 gulp.task("concatScripts", function () {
     return gulp.src([
         "./js/*.js",
@@ -37,6 +39,7 @@ gulp.task("scripts", ["minifyScripts"], function () {
 });
 
 
+/* CSS */
 gulp.task("compileSass", function() {
     return gulp.src("./sass/global.scss")
     .pipe(maps.init())
@@ -64,13 +67,15 @@ gulp.task("styles", ["minifyStyles"], function() {
 });
 
 
+/* Images */
 gulp.task("images", function () {
     return gulp.src("./images/*")
     .pipe(imagemin())
-    .pipe(gulp.dest("dist/content"));
+    .pipe(gulp.dest("dist/images"));
 });
 
 
+/* Main Tasks */
 gulp.task("clean", function () {
     del(["./dist/*", "./css/*", "./js/app*.js*"]);
 });
