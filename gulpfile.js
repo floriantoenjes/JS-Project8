@@ -26,5 +26,5 @@ gulp.task("minifyScripts", ["concatScripts"], function () {
 
 gulp.task("scripts", ["minifyScripts"], function () {
     return gulp.src("./js/app.min.js")
-    .pipe(gulp.dest("dist"));
+    .pipe(gulp.dest("dist/js"));
 });
