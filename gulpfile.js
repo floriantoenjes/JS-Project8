@@ -14,7 +14,9 @@ const gulp = require("gulp"),
       useref = require("gulp-useref");
 
 
-/* JavaScript */
+/**
+* JavaScript
+*/
 gulp.task("concatScripts", function () {
     return gulp.src([
         "./js/*.js",
@@ -39,7 +41,9 @@ gulp.task("scripts", ["minifyScripts"], function () {
 });
 
 
-/* CSS */
+/**
+* CSS
+*/
 gulp.task("compileSass", function() {
     return gulp.src("./sass/global.scss")
     .pipe(maps.init())
@@ -67,7 +71,9 @@ gulp.task("styles", ["minifyStyles"], function() {
 });
 
 
-/* Images */
+/**
+* Images
+*/
 gulp.task("images", function () {
     return gulp.src("./images/*")
     .pipe(imagemin())
@@ -75,7 +81,9 @@ gulp.task("images", function () {
 });
 
 
-/* Main Tasks */
+/**
+* Main Tasks
+*/
 gulp.task("clean", function () {
     del(["./dist/*", "./css/*", "./js/app*.js*"]);
 });
