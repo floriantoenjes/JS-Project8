@@ -100,7 +100,10 @@ gulp.task('scripts-watch', ["scripts"], function (done) {
     done();
 });
 
-gulp.task("styles-watch", ["styles"])
+gulp.task("styles-watch", ["styles"], function (done) {
+    browserSync.reload();
+    done();
+});
 
 gulp.task("serve", ["build"], function () {
     browserSync.init({
@@ -109,5 +112,6 @@ gulp.task("serve", ["build"], function () {
         }
     });
 
-    gulp.watch("./js/*", ['scripts-watch']);
+    gulp.watch("./js/*", ["scripts-watch"]);
+    gulp.watch("./sass/*", ["styles-watch"]);
 });
