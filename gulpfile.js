@@ -7,7 +7,7 @@ const gulp = require("gulp"),
       rename = require("gulp-rename"),
       sass = require("gulp-sass"),
       uglifycss = require("gulp-uglifycss"),
-      imagemin = require('gulp-imagemin'),;
+      imagemin = require('gulp-imagemin');
 
 gulp.task("concatScripts", function () {
     return gulp.src([
