@@ -11,7 +11,8 @@ const gulp = require("gulp"),
       del = require("del"),
       runSequence = require("run-sequence"),
       webserver = require('gulp-webserver'),
-      useref = require("gulp-useref");
+      useref = require("gulp-useref"),
+      browserSync = require('browser-sync').create();
 
 
 /**
@@ -104,3 +105,8 @@ gulp.task("build", function () {
 });
 
 gulp.task("default", ["build"]);
+
+gulp.task("watch", ["scripts"],function (done) {
+    browserSync.reload();
+    done();
+});
