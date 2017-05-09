@@ -43,3 +43,10 @@ gulp.task("concatStyles", ["compileSass"], function() {
     .pipe(concat("all.css"))
     .pipe(gulp.dest("css"));
 });
+
+gulp.task("minifyStyles", ["concatStyles"], function() {
+    return gulp.src("css/all.css")
+    .pipe(uglify())
+    .pipe(rename("all.min.css"))
+    .pipe(gulp.dest("css"));
+});
