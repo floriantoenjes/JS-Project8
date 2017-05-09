@@ -62,6 +62,6 @@ gulp.task("styles", ["minifyStyles"], function() {
 
 gulp.task("images", function () {
     return gulp.src("./images/*")
-    .pip(imagemin())
+    .pipe(imagemin())
     .pipe(gulp.dest("dist/content"));
 });
