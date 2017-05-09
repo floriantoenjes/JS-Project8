@@ -10,7 +10,6 @@ const gulp = require("gulp"),
       imagemin = require('gulp-imagemin'),
       del = require("del"),
       runSequence = require("run-sequence"),
-      webserver = require('gulp-webserver'),
       useref = require("gulp-useref"),
       browserSync = require('browser-sync').create();
 
@@ -38,7 +37,7 @@ gulp.task("minifyScripts", ["concatScripts"], function () {
 
 gulp.task("scripts", ["minifyScripts"], function () {
     return gulp.src("./js/app.min.js")
-    .pipe(gulp.dest("dist/scripts"));
+    .pipe(gulp.dest("./dist/scripts"));
 });
 
 
@@ -106,7 +105,19 @@ gulp.task("build", function () {
 
 gulp.task("default", ["build"]);
 
-gulp.task("watch", ["scripts"],function (done) {
-    browserSync.reload();
-    done();
+gulp.task("watch", function () {
+    gulp.watch("./js/*", ["scripts"]);
+    gulp.watch("./sass/*", ["styles"]);
+});
+
+// use default task to launch Browsersync and watch JS files
+gulp.task("serve", ["build", "watch"], function () {
+
+    // Serve files from the root of this project
+    browserSync.init({
+        server: {
+            baseDir: "./dist/"
+        }
+    });
+
 });
