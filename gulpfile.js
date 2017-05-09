@@ -23,3 +23,8 @@ gulp.task("minifyScripts", ["concatScripts"], function () {
     .pipe(rename("app.min.js"))
     .pipe(gulp.dest("js"));
 });
+
+gulp.task("scripts", [minifyScripts], function () {
+    return gulp.src("./js/app.min.js")
+    .pipe(gulp.dest("dist"));
+});
