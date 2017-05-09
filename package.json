@@ -1,0 +1,14 @@
+{
+  "name": "project_8",
+  "version": "1.0.0",
+  "description": "Project8 Using Gulp to Build a Front End Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
