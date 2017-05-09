@@ -4,7 +4,8 @@ const gulp = require("gulp"),
       concat = require("gulp-concat"),
       maps = require("gulp-sourcemaps"),
       uglify = require("gulp-uglify"),
-      rename = require("gulp-rename");
+      rename = require("gulp-rename"),
+      sass = require("gulp-sass");
 
 gulp.task("concatScripts", function () {
     return gulp.src([
@@ -28,3 +29,12 @@ gulp.task("scripts", ["minifyScripts"], function () {
     return gulp.src("./js/app.min.js")
     .pipe(gulp.dest("dist/scripts"));
 });
+
+gulp.task("compileSass", function() {
+    return gulp.src("./sass/global.scss")
+    .pipe(maps.init())
+    .pipe(sass())
+    .pipe(maps.write"./")
+    .pipe(dest("css"));
+});
+
