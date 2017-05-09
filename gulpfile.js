@@ -9,7 +9,8 @@ const gulp = require("gulp"),
       uglifycss = require("gulp-uglifycss"),
       imagemin = require('gulp-imagemin'),
       del = require("del"),
-      runSequence = require("run-sequence");
+      runSequence = require("run-sequence"),
+      webserver = require('gulp-webserver');
 
 gulp.task("concatScripts", function () {
     return gulp.src([
@@ -81,5 +82,6 @@ gulp.task("build", function() {
 gulp.task("default", ["build"]);
 
 gulp.task("serve", ["build"], function () {
-
+    gulp.src("./dist")
+    .pipe(webserver());
 });
