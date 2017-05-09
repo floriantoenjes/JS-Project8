@@ -77,3 +77,5 @@ gulp.task("clean", function () {
 gulp.task("build", function() {
     runSequence("clean", ["scripts", "styles", "images"]);
 });
+
+gulp.task("default", ["build"]);
