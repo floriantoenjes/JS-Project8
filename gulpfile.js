@@ -17,6 +17,7 @@ const gulp = require("gulp"),
 /**
 * JavaScript
 */
+
 gulp.task("concatScripts", function () {
     return gulp.src([
         "./js/*.js",
@@ -39,6 +40,7 @@ gulp.task("scripts", ["concatScripts"], function () {
 /**
 * CSS
 */
+
 gulp.task("compileSass", function() {
     return gulp.src("./sass/global.scss")
     .pipe(maps.init())
@@ -64,6 +66,7 @@ gulp.task("styles", ["concatStyles"], function() {
 /**
 * Images
 */
+
 gulp.task("images", function () {
     return gulp.src("./images/*")
     .pipe(imagemin())
@@ -74,6 +77,7 @@ gulp.task("images", function () {
 /**
 * Main Tasks
 */
+
 gulp.task("clean", function () {
     del(["./dist/*", "./css/*", "./js/app*.js*"]);
 });
