@@ -34,7 +34,7 @@ gulp.task("compileSass", function() {
     return gulp.src("./sass/global.scss")
     .pipe(maps.init())
     .pipe(sass())
-    .pipe(maps.write"./")
+    .pipe(maps.write("./"))
     .pipe(dest("css"));
 });
 
