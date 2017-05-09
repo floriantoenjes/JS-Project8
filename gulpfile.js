@@ -28,15 +28,10 @@ gulp.task("concatScripts", function () {
     .pipe(gulp.dest("js"));
 });
 
-gulp.task("minifyScripts", ["concatScripts"], function () {
+gulp.task("scripts", ["concatScripts"], function () {
     return gulp.src("js/app.js")
     .pipe(uglify())
     .pipe(rename("app.min.js"))
-    .pipe(gulp.dest("js"));
-});
-
-gulp.task("scripts", ["minifyScripts"], function () {
-    return gulp.src("./js/app.min.js")
     .pipe(gulp.dest("./dist/scripts"));
 });
 
@@ -58,15 +53,10 @@ gulp.task("concatStyles", ["compileSass"], function() {
     .pipe(gulp.dest("css"));
 });
 
-gulp.task("minifyStyles", ["concatStyles"], function() {
+gulp.task("styles", ["concatStyles"], function() {
     return gulp.src("./css/all.css")
     .pipe(uglifycss())
     .pipe(rename("all.min.css"))
-    .pipe(gulp.dest("css"));
-});
-
-gulp.task("styles", ["minifyStyles"], function() {
-    return gulp.src("./css/all.min.css")
     .pipe(gulp.dest("dist/styles"));
 });
 
@@ -105,19 +95,19 @@ gulp.task("build", function () {
 
 gulp.task("default", ["build"]);
 
-gulp.task("watch", function () {
-    gulp.watch("./js/*", ["scripts"]);
-    gulp.watch("./sass/*", ["styles"]);
+gulp.task('scripts-watch', ["scripts"], function (done) {
+    browserSync.reload();
+    done();
 });
 
-// use default task to launch Browsersync and watch JS files
-gulp.task("serve", ["build", "watch"], function () {
+gulp.task("styles-watch", ["styles"])
 
-    // Serve files from the root of this project
+gulp.task("serve", ["build"], function () {
     browserSync.init({
         server: {
-            baseDir: "./dist/"
+            baseDir: "./"
         }
     });
 
+    gulp.watch("./js/*", ['scripts-watch']);
 });
