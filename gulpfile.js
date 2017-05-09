@@ -35,6 +35,6 @@ gulp.task("compileSass", function() {
     .pipe(maps.init())
     .pipe(sass())
     .pipe(maps.write("./"))
-    .pipe(dest("css"));
+    .pipe(gulp.dest("css"));
 });
 
