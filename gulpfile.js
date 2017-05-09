@@ -85,7 +85,7 @@ gulp.task("html", ["scripts", "styles"],function () {
 });
 
 gulp.task("build", function () {
-    runSequence("clean", ["scripts", "styles", "images"]);
+    runSequence("clean", ["html", "images"]);
     return gulp.src("./index.html")
     .pipe(gulp.dest("dist"));
 });
