@@ -1,17 +1,17 @@
 "use strict";
 
-const gulp = require("gulp"),
+const browserSync = require('browser-sync').create(),
       concat = require("gulp-concat"),
-      maps = require("gulp-sourcemaps"),
-      uglify = require("gulp-uglify"),
-      rename = require("gulp-rename"),
-      sass = require("gulp-sass"),
-      uglifycss = require("gulp-uglifycss"),
-      imagemin = require('gulp-imagemin'),
       del = require("del"),
+      gulp = require("gulp"),
+      imagemin = require('gulp-imagemin'),
+      maps = require("gulp-sourcemaps"),
+      rename = require("gulp-rename"),
       runSequence = require("run-sequence"),
-      useref = require("gulp-useref"),
-      browserSync = require('browser-sync').create();
+      sass = require("gulp-sass"),
+      uglify = require("gulp-uglify"),
+      uglifycss = require("gulp-uglifycss"),
+      useref = require("gulp-useref");
 
 
 /**
