@@ -5,7 +5,8 @@ const gulp = require("gulp"),
       maps = require("gulp-sourcemaps"),
       uglify = require("gulp-uglify"),
       rename = require("gulp-rename"),
-      sass = require("gulp-sass");
+      sass = require("gulp-sass"),
+      uglifycss = require("gulp-uglifycss");
 
 gulp.task("concatScripts", function () {
     return gulp.src([
@@ -46,7 +47,7 @@ gulp.task("concatStyles", ["compileSass"], function() {
 
 gulp.task("minifyStyles", ["concatStyles"], function() {
     return gulp.src("css/all.css")
-    .pipe(uglify())
+    .pipe(uglifycss())
     .pipe(rename("all.min.css"))
     .pipe(gulp.dest("css"));
 });
