@@ -10,7 +10,8 @@ const gulp = require("gulp"),
       imagemin = require('gulp-imagemin'),
       del = require("del"),
       runSequence = require("run-sequence"),
-      webserver = require('gulp-webserver');
+      webserver = require('gulp-webserver'),
+      useref = require("gulp-useref");
 
 gulp.task("concatScripts", function () {
     return gulp.src([
@@ -75,7 +76,15 @@ gulp.task("clean", function () {
 });
 
 
-gulp.task("build", function() {
+gulp.task("html", ["scripts", "styles"],function () {
+    return gulp.src("./index.html")
+    .pipe(useref({
+        noAssets: true
+    }))
+    .pipe(gulp.dest("dist"));
+});
+
+gulp.task("build", function () {
     runSequence("clean", ["scripts", "styles", "images"]);
     return gulp.src("./index.html")
     .pipe(gulp.dest("dist"));
