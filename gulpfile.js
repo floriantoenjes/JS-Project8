@@ -31,6 +31,7 @@ gulp.task("scripts", ["minifyScripts"], function () {
     .pipe(gulp.dest("dist/scripts"));
 });
 
+
 gulp.task("compileSass", function() {
     return gulp.src("./sass/global.scss")
     .pipe(maps.init())
@@ -46,8 +47,13 @@ gulp.task("concatStyles", ["compileSass"], function() {
 });
 
 gulp.task("minifyStyles", ["concatStyles"], function() {
-    return gulp.src("css/all.css")
+    return gulp.src("./css/all.css")
     .pipe(uglifycss())
     .pipe(rename("all.min.css"))
     .pipe(gulp.dest("css"));
+});
+
+gulp.task("styles", ["minifyStyles"], function() {
+    return gulp.src("./css/all.min.css")
+    .pipe(gulp.dest("dist/styles"));
 });
