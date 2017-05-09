@@ -6,8 +6,8 @@ const gulp = require("gulp"),
 
 gulp.task("scripts", function () {
     return gulp.src([
-        "/js/*.js",
-        "/js/circle/*.js"
+        "./js/*.js",
+        "./js/circle/*.js"
     ])
     .pipe(maps.init())
     .pipe(concat("app.js"))
