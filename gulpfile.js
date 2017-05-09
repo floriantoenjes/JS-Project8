@@ -93,12 +93,17 @@ gulp.task("build", function () {
     .pipe(gulp.dest("dist"));
 });
 
+
+gulp.task("default", ["build"]);
+
+/**
+* Watch and Serve Tasks
+*/
+
 gulp.task("watch", function () {
     gulp.watch("./js/*", ["scripts"]);
     gulp.watch("./sass/*", ["styles"]);
 });
-
-gulp.task("default", ["build"]);
 
 gulp.task('scripts-watch', ["scripts"], function (done) {
     browserSync.reload();
