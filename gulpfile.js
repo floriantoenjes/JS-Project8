@@ -69,5 +69,5 @@ gulp.task("images", function () {
 
 
 gulp.task("clean", function () {
-    del("dist");
+    del("./dist/*");
 });
