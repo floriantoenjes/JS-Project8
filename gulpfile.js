@@ -6,7 +6,8 @@ const gulp = require("gulp"),
       uglify = require("gulp-uglify"),
       rename = require("gulp-rename"),
       sass = require("gulp-sass"),
-      uglifycss = require("gulp-uglifycss");
+      uglifycss = require("gulp-uglifycss"),
+      imagemin = require('gulp-imagemin'),;
 
 gulp.task("concatScripts", function () {
     return gulp.src([
@@ -56,4 +57,11 @@ gulp.task("minifyStyles", ["concatStyles"], function() {
 gulp.task("styles", ["minifyStyles"], function() {
     return gulp.src("./css/all.min.css")
     .pipe(gulp.dest("dist/styles"));
+});
+
+
+gulp.task("images", function () {
+    return gulp.src("./images/*")
+    .pip(imagemin())
+    .pipe(gulp.dest("dist/content"));
 });
