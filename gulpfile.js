@@ -38,3 +38,8 @@ gulp.task("compileSass", function() {
     .pipe(gulp.dest("css"));
 });
 
+gulp.task("concatStyles", ["compileSass"], function() {
+    return gulp.src("./css/*.css")
+    .pipe(concat("all.css"))
+    .pipe(gulp.dest("css"));
+});
