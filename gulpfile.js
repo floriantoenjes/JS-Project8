@@ -1,10 +1,10 @@
 "use strict";
 
-const browserSync = require('browser-sync').create(),
+const browserSync = require("browser-sync").create(),
       concat = require("gulp-concat"),
       del = require("del"),
       gulp = require("gulp"),
-      imagemin = require('gulp-imagemin'),
+      imagemin = require("gulp-imagemin"),
       maps = require("gulp-sourcemaps"),
       rename = require("gulp-rename"),
       runSequence = require("run-sequence"),
