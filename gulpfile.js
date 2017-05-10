@@ -109,7 +109,7 @@ gulp.task("watch", function () {
     gulp.watch("./sass/*", ["styles"]);
 });
 
-gulp.task('scripts-watch', ["scripts"], function (done) {
+gulp.task("scripts-watch", ["scripts"], function (done) {
     browserSync.reload();
     done();
 });
